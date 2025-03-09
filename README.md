@@ -7,7 +7,7 @@ Welcome to my March Madness 2025 repository! This repository contains all the co
 - [Data Preprocessing](#data-preprocessing)
 - [Linear Regression](#linear-regression)
 - [Hyperparameter Tuning](#hyperparameter-tuning)
-- [Training/Testing Results](#training-testing-results)
+- [Results](#results)
 
 ## Data Preprocessing
 For 2025 I have decided only to use [data](https://www.kaggle.com/competitions/march-machine-learning-mania-2025/data) provided by Kaggle to avoid having to handle any team spelling differences across datasets. Kaggle has very nicely assigned UIDs to each team to keep track of them throughout the seasons and without comparing strings.
