@@ -5,7 +5,7 @@ Welcome to my March Madness 2025 repository! This repository contains all the co
 ## Table of Contents
 
 - [Data Preprocessing](#data-preprocessing)
-- [Linear Regression](#linear-regression)
+- [Logistic Regression](#logistic-regression)
 - [Hyperparameter Tuning](#hyperparameter-tuning)
 - [Results](#results)
 
@@ -58,7 +58,7 @@ I then created the following additional features from the original box score sta
 - **Offensive Rebound Rate** - ratio of ORs to all rebounds that happen while they are on offense. (How well a team attacks the glass on offense)
 - **Defensive Rebound Rate** - ratio of DRs to all rebounds that happen while they are on defense. (How well a team attacks the glass on defense)
 
-## Linear Regression
+## Logistic Regression
 TBD
 
 ## Hyperparameter Tuning
