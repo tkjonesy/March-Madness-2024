@@ -42,11 +42,11 @@ So for each row in MRegularSeasonDetailedResults.csv, I split it into two rows, 
        'Losses', 'NumGames']
 
 ### Feature Creation
-To get the features to feed to the model I started by getting a per game stat for each box score above excluding 'Wins', 'Losses', and 'NumGames'.
+To get the features to feed to the model I started by getting a per game stat for each box score stat above excluding 'Wins', 'Losses', and 'NumGames'.
 
-I then created the following additional features from the original that gives insights to how each team plays:
+I then created the following additional features from the original box score stats that provides insights to how each team plays:
 - **Points Ratio** - ratio of points scored to opponent's points scored.
-- **Win/Loss Ratio** - Self explanatory.
+- **Win/Loss Ratio** - self explanatory.
 - **Margin of Victory** - on average, how close is the score of each game.
 - **Turnover Ratio** - ratio of TOs to OppTOs.
 - **Scoring Efficiency** - ratio of made shots to attempts. (How well does a team shoot in general)
