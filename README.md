@@ -10,7 +10,53 @@ Welcome to my March Madness 2025 repository! This repository contains all the co
 - [Training/Testing Results](#training-testing-results)
 
 ## Data Preprocessing
-For 2025 I have decided only to use [data](https://www.kaggle.com/competitions/march-machine-learning-mania-2025/data) provided by kaggle to avoid having to handle any team spelling differences across datasets. Kaggle has very nicely assigned UIDs to each team to keep track of them throughout the seasons and without comparing strings.
+For 2025 I have decided only to use [data](https://www.kaggle.com/competitions/march-machine-learning-mania-2025/data) provided by Kaggle to avoid having to handle any team spelling differences across datasets. Kaggle has very nicely assigned UIDs to each team to keep track of them throughout the seasons and without comparing strings.
+
+For this year, most of the data will come from box score stats provided in [MRegularSeasonDetailedResults.csv](/data/men%20data/MRegularSeasonDetailedResults.csv):
+
+Description from [Kaggle:](https://www.kaggle.com/competitions/march-machine-learning-mania-2025/data)
+- **WFGM** - field goals made (by the winning team)
+- **WFGA** - field goals attempted (by the winning team)
+- **WFGM3** - three pointers made (by the winning team)
+- **WFGA3** - three pointers attempted (by the winning team)
+- **WFTM** - free throws made (by the winning team)
+- **WFTA** - free throws attempted (by the winning team)
+- **WOR** - offensive rebounds (pulled by the winning team)
+- **WDR** - defensive rebounds (pulled by the winning team)
+- **WAst** - assists (by the winning team)
+- **WTO** - turnovers committed (by the winning team)
+- **WStl** - steals (accomplished by the winning team)
+- **WBlk** - blocks (accomplished by the winning team)
+- **WPF** - personal fouls committed (by the winning team)
+
+(And then the same set of stats from the perspective of the losing team: LFGM is the number of field goals made by the losing team, and so on up to LPF).
+
+I began by splitting the data to focus on one team to track the number of wins and losses for each team, and the number of games played by that team.
+
+So for each row in MRegularSeasonDetailedResults.csv, I split it into two rows, one for each team. Then I grouped the dataframe on the Season and TeamID, summing the results, ending up with the these columns:<br>
+
+['Score', 'OppScore', 'NumOT', 'FGM', 'FGA', 'FGM3', 'FGA3', 'FTM',<br>
+       'FTA', 'OR', 'DR', 'Ast', 'TO', 'Stl', 'Blk', 'PF', 'OppFGM',<br>
+       'OppFGA', 'OppFGM3', 'OppFGA3', 'OppFTM', 'OppFTA', 'OppOR',<br>
+       'OppDR', 'OppAst', 'OppTO', 'OppStl', 'OppBlk', 'OppPF', 'Wins',<br>
+       'Losses', 'NumGames']
+
+### Feature Creation
+To get the features to feed to the model I started by getting a per game stat for each box score above excluding 'Wins', 'Losses', and 'NumGames'.
+
+I then created the following additional features from the original that gives insights to how each team plays:
+- **Points Ratio** - ratio of points scored to opponent's points scored.
+- **Win/Loss Ratio** - Self explanatory.
+- **Margin of Victory** - on average, how close is the score of each game.
+- **Turnover Ratio** - ratio of TOs to OppTOs.
+- **Scoring Efficiency** - ratio of made shots to attempts. (How well does a team shoot in general)
+- **3-Point Efficiency** - ratio of 3-pointers made to attempted. (How well does a team shoot 3s)
+- **3-Point Attempt Rate** - ratio of 3-pointers attempted to all shots attempted. (How reliant is a team on 3s)
+- **Free Throw Efficiency** - ratio of free throws made to attempted. (How well does a team make free throws)
+- **Free Throw Attempt Rate** - ratio of free throws attempted to all shots attempted. (How often a team gets to the line)
+- **Opponent Free Throw Attempt Rate** - ratio of free throws attempted by opponents to all shots attempted by opponents. (How often a team send their opponent to the line)
+- **Offensive Rebound Rate** - ratio of ORs to all rebounds that happen while they are on offense. (How well a team attacks the glass on offense)
+- **Defensive Rebound Rate** - ratio of DRs to all rebounds that happen while they are on defense. (How well a team attacks the glass on defense)
 
 ## Linear Regression
 TBD
