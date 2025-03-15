@@ -78,4 +78,4 @@ Here are my current results combining mens and womens daat into a single model:
 - Log Loss: 0.5749689958621383
 - Brier Score: 0.1984564004495349
 
-My target brier score is 0.170. Needless to say, I have some work to do.
+My target brier score is 0.155. Needless to say, I have some work to do.
