@@ -59,10 +59,23 @@ I then created the following additional features from the original box score sta
 - **Defensive Rebound Rate** - ratio of DRs to all rebounds that happen while they are on defense. (How well a team attacks the glass on defense)
 
 ## Logistic Regression
-TBD
+For this model I am using the [Scikit-Learn Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) framework.
 
 ## Hyperparameter Tuning
-TBD
+Here are the optimal parameters I have found using a grid search:
+
+`C=1,
+max_iter=100,
+solver='saga',
+tol=0.0001
+`
 
 ## Results
-TBD
+Here are my current results combining mens and womens daat into a single model:
+
+**Logistic Regression:**
+
+- Log Loss: 0.5749689958621383
+- Brier Score: 0.1984564004495349
+
+My target brier score is 0.170. Needless to say, I have some work to do.
